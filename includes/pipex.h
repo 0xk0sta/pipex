@@ -17,6 +17,7 @@ typedef struct s_data
 	char	**path;
 	char	*c_path;
 	char	**envp;
+	char	*line;
 	pid_t	c_pid;
 	int		new_stdin;
 	int		new_stdout;
