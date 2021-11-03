@@ -1,5 +1,7 @@
 NAME = pipex
 
+UNAME_S := $(shell uname -s)
+
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFLAGS += -I includes/ -I libft/
@@ -18,6 +20,15 @@ OBJ=$(SRC:%.c=%.o)
 
 SRCS=$(addprefix srcs/, $(SRC))
 OBJS=$(addprefix srcs/, $(OBJ))
+
+# debug
+ifeq ($(UNAME_S),Linux)
+debug: CFLAGS += -pedantic -fsanitize=address -fsanitize=leak -fsanitize=undefined -fsanitize=bounds -fsanitize=null -g3
+endif
+ifeq ($(UNAME_S),Darwin)
+debug: CFLAGS += -pedantic -fsanitize=address -g3
+endif
+debug: $(NAME)
 
 all: $(NAME)
 
