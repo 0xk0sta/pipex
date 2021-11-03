@@ -7,10 +7,11 @@ LDFLAGS = -L libft/ -lft
 
 SRCD = srcs
 
-SRC=	error_handler.c					\
+SRC=	error_handler.c		\
 		ft_free.c			\
-		parse.c					\
-		path_utils.c			\
+		parse.c				\
+		path_utils.c		\
+		here_doc_utils.c	\
 		pipex.c
 
 OBJ=$(SRC:%.c=%.o)
